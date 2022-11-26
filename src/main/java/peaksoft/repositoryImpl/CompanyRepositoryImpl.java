@@ -32,7 +32,9 @@ public class CompanyRepositoryImpl implements CompanyRepository {
 
     @Override
     public void saveCompany(Company company) {
-        manager.merge(company);
+        if (company!=null){
+            manager.merge(company);
+        }
     }
 
     @Override

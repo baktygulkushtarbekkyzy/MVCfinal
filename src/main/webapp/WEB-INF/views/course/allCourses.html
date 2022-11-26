@@ -14,6 +14,9 @@
             height: 40px;
             color: rgb(240, 222, 178);
         }
+        body{
+            background-color: darkslategray;
+        }
 
         td {
             width: 300px;
@@ -69,10 +72,10 @@
             <th>Duration</th>
             <th>Description</th>
             <th>Instructors</th>
-
             <th>Lesson</th>
             <th>update</th>
             <th>delete</th>
+            <th>assign</th>
         </tr>
         <tr class="up" th:each="course : ${courses}">
             <td th:text="${course.id}"></td>
@@ -99,6 +102,19 @@
                 <form th:method="DELETE" th:action="@{/courses/delete/{id}/{companyId}(id=${course.id},companyId=${companyId})}">
                     <input type="submit" value="delete"
                            style="height: 40px; width: 80px; background-color:darkorange;"/>
+                </form>
+            </td>
+            <td>
+                <form th:method="POST"
+                      th:action="@{/courses/{companyId}/{courseId}/saveAssign(courseId=${course.getId()}, companyId=${companyId})}">
+                    <select name="instructor" class="form-select form-select-sm"  aria-label=".form-select-sm example"
+                            th:object="${group}" th:field="*{id}">
+                        <option th:each="group : ${groups}"
+                                th:value="${group.id}"
+                                th:text="${group.groupName}">
+                        </option>
+                    </select>
+                    <input type="submit" value="assign" style="height: 30px;width: 60px; background: azure"/>
                 </form>
             </td>
         </tr>

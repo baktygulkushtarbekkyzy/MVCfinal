@@ -36,7 +36,7 @@ public class GroupController {
     }
 
     @PostMapping("/save/{companyId}")
-    public String saveGroup(@ModelAttribute("group") Group group,
+    public String saveGroup(Group group,
                             @PathVariable Long companyId){
         groupService.saveGroup(companyId,group);
         return "redirect:/groups/getAll/{companyId}";

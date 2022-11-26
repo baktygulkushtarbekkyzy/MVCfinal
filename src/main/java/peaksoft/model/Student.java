@@ -25,6 +25,7 @@ public class Student {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    @Column(unique = true)
     private String email;
     private StudyFormat studyFormat;
 

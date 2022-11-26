@@ -45,7 +45,8 @@
 </head>
 <body>
 <div>
-    <form th:method="POST" th:action="@{/groups/save/{companyId}(companyId=${companyId})}" th:object="${newGroup}">
+    <form th:method="POST" th:action="@{/groups/save/{companyId}(companyId=${companyId})}"
+          th:object="${newGroup}">
         <input  type="hidden" th:field="*{id}"  />
         <input placeholder="Group name" th:field="*{groupName}" type="text" />
         <input placeholder="Date of Start" th:field="*{dateOfStart}" type="date" />

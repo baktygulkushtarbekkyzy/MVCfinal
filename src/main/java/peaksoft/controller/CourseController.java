@@ -72,7 +72,7 @@ public class CourseController {
     @PostMapping("/{companyId}/{courseId}/saveAssign")
     private String saveAssign(@PathVariable("courseId") Long courseId,
                               @ModelAttribute("group") Group group,
-                              @PathVariable("companyId") Long compId) {
+                              @PathVariable("companyId") Long comId) {
         System.out.println(group);
         groupService.assignGroupToCourse(group.getId(), courseId);
         return "redirect:/courses/getAll/{companyId}";
